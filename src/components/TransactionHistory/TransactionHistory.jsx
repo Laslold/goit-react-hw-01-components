@@ -1,6 +1,6 @@
-import TransactionHistoryItems from "./TransactionHistoryItems";
-import PropTypes from "prop-types";
-import styled from "./transactionHistory.module.css";
+import TransactionHistoryItems from './TransactionHistoryItems';
+import PropTypes from 'prop-types';
+import styled from './transactionHistory.module.css';
 export default function TransactionHistory({ items }) {
   return (
     <table className={styled.transactionHistory}>
@@ -13,7 +13,7 @@ export default function TransactionHistory({ items }) {
       </thead>
 
       <tbody>
-        {items.map((el) => (
+        {items.map(el => (
           <TransactionHistoryItems
             type={el.type}
             amount={el.amount}
@@ -25,7 +25,7 @@ export default function TransactionHistory({ items }) {
     </table>
   );
 }
-TransactionHistory.protoType = {
+TransactionHistory.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       type: PropTypes.string.isRequired,
@@ -33,5 +33,4 @@ TransactionHistory.protoType = {
       currency: PropTypes.string.isRequired,
     }).isRequired
   ),
-  key: PropTypes.string.isRequired,
 };

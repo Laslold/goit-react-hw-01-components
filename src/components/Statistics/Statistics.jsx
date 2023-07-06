@@ -1,13 +1,14 @@
-import styles from "./statistics.module.css";
-import PropTypes from "prop-types";
+import styles from './statistics.module.css';
+import PropTypes from 'prop-types';
 export default function Statistics(props) {
   const { title, stats } = props;
   return (
     <section className={styles.statistics}>
-      <h2 className={styles.title}>{title}</h2>
+      {title && <h2 className={styles.title}>{title}</h2>}
+      {/* <h2 className={styles.title}>{title}</h2> */}
 
       <ul className={styles.statlist}>
-        {stats.map((el) => (
+        {stats.map(el => (
           <li
             key={el.id}
             className={styles.item}
@@ -21,7 +22,7 @@ export default function Statistics(props) {
     </section>
   );
 }
-Statistics.protoTYpe = {
+Statistics.propTypes = {
   title: PropTypes.string,
   stats: PropTypes.shape({
     label: PropTypes.string.isRequired,
